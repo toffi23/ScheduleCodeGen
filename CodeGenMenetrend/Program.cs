@@ -16,7 +16,7 @@ namespace CodeGenMenetrend
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LabelCal());
+            Application.Run(new MainMenu());
         }
     }
 }

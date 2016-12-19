@@ -15,6 +15,8 @@ namespace CodeGenMenetrend
 {   
     public partial class LabelCal : Form
     {
+        private MainMenu parent;
+
         private Label[] dates;
         private Color[] colors;
         private int[] dayCodes; 
@@ -47,8 +49,10 @@ namespace CodeGenMenetrend
             "December"
         };
 
-        public LabelCal()
+        public LabelCal(MainMenu pMainMenu)
         {
+            parent = pMainMenu;
+
             InitializeComponent();
 
             radioFree.BackColor = FREEDAY;
@@ -242,19 +246,27 @@ namespace CodeGenMenetrend
 
         private void LabelCal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            dateCodes codes = new dateCodes();
-            codes.setYear(YEAR);
-            codes.setColors(colors);
-            codes.setDayCodes(dayCodes);
+            DialogResult result = MessageBox.Show("Do you want to save changes?", "Save chamges", MessageBoxButtons.YesNo);
 
-            XmlSerializer ser = new XmlSerializer(typeof(dateCodes));
-            StringWriter sw = new StringWriter();
-            StreamWriter writer = new StreamWriter(CODESPATH);
-            ser.Serialize(writer, codes);
+            if (result == DialogResult.Yes)
+            {
 
-            writer.Close();
-            writer.Dispose();
-            sw.Dispose();
+                dateCodes codes = new dateCodes();
+                codes.setYear(YEAR);
+                codes.setColors(colors);
+                codes.setDayCodes(dayCodes);
+
+                XmlSerializer ser = new XmlSerializer(typeof(dateCodes));
+                StringWriter sw = new StringWriter();
+                StreamWriter writer = new StreamWriter(CODESPATH);
+                ser.Serialize(writer, codes);
+
+                writer.Close();
+                writer.Dispose();
+                sw.Dispose();
+            }
+
+            parent.Show();
         }
 
         private void button_gencode_Click(object sender, EventArgs e)
