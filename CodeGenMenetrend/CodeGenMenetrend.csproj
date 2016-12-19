@@ -62,6 +62,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScheduleCreator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScheduleCreator.Designer.cs">
+      <DependentUpon>ScheduleCreator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScheduleLib\Schedule.cs" />
+    <Compile Include="ScheduleLib\Station.cs" />
     <EmbeddedResource Include="LabelCal.resx">
       <DependentUpon>LabelCal.cs</DependentUpon>
     </EmbeddedResource>
@@ -77,6 +85,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ScheduleCreator.resx">
+      <DependentUpon>ScheduleCreator.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

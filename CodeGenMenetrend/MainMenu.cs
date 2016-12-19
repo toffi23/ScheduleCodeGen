@@ -24,5 +24,12 @@ namespace CodeGenMenetrend
             calGen.Show();
 
         }
+
+        private void button_scheduleGen_Click(object sender, EventArgs e)
+        {
+            ScheduleCreator schedCreator = new ScheduleCreator(this);
+            this.Hide();
+            schedCreator.Show();
+        }
     }
 }

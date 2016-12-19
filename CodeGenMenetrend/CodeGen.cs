@@ -51,7 +51,7 @@ namespace CodeGenMenetrend
         public void buildFunction()
         {
             Output += tab + funcName + endline + tab + open + endline;
-
+            
             DateTime date;
             int days;
             String comment = "";

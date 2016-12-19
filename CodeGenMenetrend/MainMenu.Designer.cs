@@ -40,6 +40,7 @@
             this.button_scheduleGen.TabIndex = 1;
             this.button_scheduleGen.Text = "Schedule";
             this.button_scheduleGen.UseVisualStyleBackColor = true;
+            this.button_scheduleGen.Click += new System.EventHandler(this.button_scheduleGen_Click);
             // 
             // button_calGen
             // 
