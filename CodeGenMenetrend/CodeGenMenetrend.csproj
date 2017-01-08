@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddNewStation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewStation.Designer.cs">
+      <DependentUpon>AddNewStation.cs</DependentUpon>
+    </Compile>
     <Compile Include="CodeGen.cs" />
     <Compile Include="dateCodes.cs" />
     <Compile Include="LabelCal.cs">
@@ -70,6 +76,15 @@
     </Compile>
     <Compile Include="ScheduleLib\Schedule.cs" />
     <Compile Include="ScheduleLib\Station.cs" />
+    <Compile Include="StationListEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StationListEditor.Designer.cs">
+      <DependentUpon>StationListEditor.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddNewStation.resx">
+      <DependentUpon>AddNewStation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LabelCal.resx">
       <DependentUpon>LabelCal.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +102,9 @@
     </Compile>
     <EmbeddedResource Include="ScheduleCreator.resx">
       <DependentUpon>ScheduleCreator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StationListEditor.resx">
+      <DependentUpon>StationListEditor.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

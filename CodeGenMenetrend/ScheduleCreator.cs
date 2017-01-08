@@ -31,6 +31,9 @@ namespace CodeGenMenetrend
 
         private void button_StationList_Click(object sender, EventArgs e)
         {
+            StationListEditor editor = new StationListEditor(schedule.Stations);
+            editor.Show(this);
+            
 
         }
     }

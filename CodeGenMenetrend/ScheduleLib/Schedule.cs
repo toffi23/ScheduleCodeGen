@@ -1,14 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System.ComponentModel;
 
 namespace CodeGenMenetrend.ScheduleLib
 {
-    class Schedule
+    public class Schedule
     {
-        private List<Station> stations;
+        private BindingList<Station> _stations;
+        public BindingList<Station> Stations { get { return _stations; } }
 
         public Schedule()
         {
-            stations = new List<Station>();
+            _stations = new BindingList<Station>();
         }
         
     }

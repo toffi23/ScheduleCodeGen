@@ -33,7 +33,7 @@
             // 
             // button_StationList
             // 
-            this.button_StationList.Location = new System.Drawing.Point(113, 40);
+            this.button_StationList.Location = new System.Drawing.Point(12, 12);
             this.button_StationList.Name = "button_StationList";
             this.button_StationList.Size = new System.Drawing.Size(75, 23);
             this.button_StationList.TabIndex = 0;
@@ -45,7 +45,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(517, 287);
+            this.ClientSize = new System.Drawing.Size(184, 163);
             this.Controls.Add(this.button_StationList);
             this.Name = "ScheduleCreator";
             this.Text = "ScheduleCreator";
