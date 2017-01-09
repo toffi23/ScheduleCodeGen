@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CodeGenMenetrend.ScheduleLib;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace CodeGenMenetrend
 {
@@ -21,11 +23,29 @@ namespace CodeGenMenetrend
             InitializeComponent();
 
             parent = mainMenu;
-            schedule = new Schedule(); 
+            try
+            {
+                var formatter = new BinaryFormatter();
+                var stream = new FileStream("Schedule.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+                schedule = (Schedule)formatter.Deserialize(stream);
+                stream.Close();
+            }
+            catch(FileNotFoundException ex)
+            {
+                MessageBox.Show($"Couldn't find Schedule.bin. Creating empty schedule");
+                schedule = new Schedule();
+            }
+
+            
         }
 
         private void ScheduleCreator_FormClosing(object sender, FormClosingEventArgs e)
         {
+            BinaryFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("Schedule.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, schedule);
+            stream.Close();
+
             parent.Show();
         }
 

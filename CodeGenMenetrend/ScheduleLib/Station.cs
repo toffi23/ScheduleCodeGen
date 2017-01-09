@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodeGenMenetrend.ScheduleLib
 {
+    [Serializable]
     public class Station : IEquatable<Station>
     {
         public String _name;

@@ -18,14 +18,25 @@ namespace CodeGenMenetrend
         public StationListEditor(BindingList<Station> pStations)
         {
             InitializeComponent();
-            
 
-            stations = new BindingList<Station>(pStations);
+
+            stations = pStations;
         }
 
         private void button_addStation_Click(object sender, EventArgs e)
         {
+            AddNewStation addDialog = new AddNewStation();
+            if(addDialog.ShowDialog() == DialogResult.OK)
+            {
+                stations.Add(addDialog.station);
+                MessageBox.Show($"New station: {addDialog.station.Name}");
+            }
 
+            Console.WriteLine("Stationlist:");
+            foreach(Station s in stations)
+            {
+                Console.WriteLine(s.Name);
+            }
         }
     }
 }

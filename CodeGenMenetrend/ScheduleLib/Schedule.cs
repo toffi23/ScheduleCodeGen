@@ -1,7 +1,9 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace CodeGenMenetrend.ScheduleLib
 {
+    [Serializable]
     public class Schedule
     {
         private BindingList<Station> _stations;

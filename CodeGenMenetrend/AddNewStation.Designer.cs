@@ -57,6 +57,7 @@
             this.addStationButton.TabIndex = 2;
             this.addStationButton.Text = "OK";
             this.addStationButton.UseVisualStyleBackColor = true;
+            this.addStationButton.Click += new System.EventHandler(this.addStationButton_Click);
             // 
             // AddNewStation
             // 
