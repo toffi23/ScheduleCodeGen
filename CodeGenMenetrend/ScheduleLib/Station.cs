@@ -21,5 +21,10 @@ namespace CodeGenMenetrend.ScheduleLib
         {
             return _name == other.Name;
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

@@ -69,6 +69,7 @@
             this.button_removeStation.TabIndex = 3;
             this.button_removeStation.Text = "Remove";
             this.button_removeStation.UseVisualStyleBackColor = true;
+            this.button_removeStation.Click += new System.EventHandler(this.button_removeStation_Click);
             // 
             // StationListEditor
             // 

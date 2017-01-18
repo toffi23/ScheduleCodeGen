@@ -21,6 +21,8 @@ namespace CodeGenMenetrend
 
 
             stations = pStations;
+
+            listBox_editStations.DataSource = stations;
         }
 
         private void button_addStation_Click(object sender, EventArgs e)
@@ -37,6 +39,19 @@ namespace CodeGenMenetrend
             {
                 Console.WriteLine(s.Name);
             }
+        }
+
+        private void button_removeStation_Click(object sender, EventArgs e)
+        {
+            // TODO: do not allow removing stations that are used in schedule but list the lines that are use it
+            if(listBox_editStations.SelectedItem == null)
+            {
+                MessageBox.Show("You must select a station first.");
+                return;
+            }
+
+            Station toRemove = stations[listBox_editStations.SelectedIndex];
+            stations.Remove(toRemove);
         }
     }
 }
