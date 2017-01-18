@@ -1,6 +1,6 @@
 ﻿namespace CodeGenMenetrend
 {
-    partial class AddNewStation
+    partial class EditStation
     {
         /// <summary>
         /// Required designer variable.
@@ -48,6 +48,7 @@
             this.textBox_newStationName.Name = "textBox_newStationName";
             this.textBox_newStationName.Size = new System.Drawing.Size(313, 20);
             this.textBox_newStationName.TabIndex = 1;
+            this.textBox_newStationName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_newStationName_KeyDown);
             // 
             // addStationButton
             // 
@@ -55,11 +56,11 @@
             this.addStationButton.Name = "addStationButton";
             this.addStationButton.Size = new System.Drawing.Size(290, 42);
             this.addStationButton.TabIndex = 2;
-            this.addStationButton.Text = "OK";
+            this.addStationButton.Text = "&OK";
             this.addStationButton.UseVisualStyleBackColor = true;
             this.addStationButton.Click += new System.EventHandler(this.addStationButton_Click);
             // 
-            // AddNewStation
+            // EditStation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -67,7 +68,7 @@
             this.Controls.Add(this.addStationButton);
             this.Controls.Add(this.textBox_newStationName);
             this.Controls.Add(this.label1);
-            this.Name = "AddNewStation";
+            this.Name = "EditStation";
             this.Text = "New station";
             this.ResumeLayout(false);
             this.PerformLayout();

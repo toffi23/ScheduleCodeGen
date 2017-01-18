@@ -19,7 +19,6 @@ namespace CodeGenMenetrend
         {
             InitializeComponent();
 
-
             stations = pStations;
 
             listBox_editStations.DataSource = stations;
@@ -27,7 +26,7 @@ namespace CodeGenMenetrend
 
         private void button_addStation_Click(object sender, EventArgs e)
         {
-            AddNewStation addDialog = new AddNewStation();
+            EditStation addDialog = new EditStation();
             if(addDialog.ShowDialog() == DialogResult.OK)
             {
                 stations.Add(addDialog.station);
@@ -52,6 +51,24 @@ namespace CodeGenMenetrend
 
             Station toRemove = stations[listBox_editStations.SelectedIndex];
             stations.Remove(toRemove);
+        }
+
+        private void button_editStation_Click(object sender, EventArgs e)
+        {
+            if (listBox_editStations.SelectedItem == null)
+            {
+                MessageBox.Show("You must select a station first.");
+                return;
+            }
+
+            Station toEdit = stations[listBox_editStations.SelectedIndex];
+            EditStation editDialog = new EditStation(toEdit);
+            if(editDialog.ShowDialog() == DialogResult.OK)
+            {
+               listBox_editStations.DataSource = null;
+               listBox_editStations.DataSource = stations;
+            }
+
         }
     }
 }

@@ -48,7 +48,7 @@
             this.button_addStation.Name = "button_addStation";
             this.button_addStation.Size = new System.Drawing.Size(75, 23);
             this.button_addStation.TabIndex = 1;
-            this.button_addStation.Text = "Add new";
+            this.button_addStation.Text = "&Add new";
             this.button_addStation.UseVisualStyleBackColor = true;
             this.button_addStation.Click += new System.EventHandler(this.button_addStation_Click);
             // 
@@ -58,8 +58,9 @@
             this.button_editStation.Name = "button_editStation";
             this.button_editStation.Size = new System.Drawing.Size(75, 23);
             this.button_editStation.TabIndex = 2;
-            this.button_editStation.Text = "Edit";
+            this.button_editStation.Text = "&Edit";
             this.button_editStation.UseVisualStyleBackColor = true;
+            this.button_editStation.Click += new System.EventHandler(this.button_editStation_Click);
             // 
             // button_removeStation
             // 
@@ -67,7 +68,7 @@
             this.button_removeStation.Name = "button_removeStation";
             this.button_removeStation.Size = new System.Drawing.Size(75, 23);
             this.button_removeStation.TabIndex = 3;
-            this.button_removeStation.Text = "Remove";
+            this.button_removeStation.Text = "&Remove";
             this.button_removeStation.UseVisualStyleBackColor = true;
             this.button_removeStation.Click += new System.EventHandler(this.button_removeStation_Click);
             // 

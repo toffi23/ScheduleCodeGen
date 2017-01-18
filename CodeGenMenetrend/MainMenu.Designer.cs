@@ -38,7 +38,7 @@
             this.button_scheduleGen.Name = "button_scheduleGen";
             this.button_scheduleGen.Size = new System.Drawing.Size(151, 44);
             this.button_scheduleGen.TabIndex = 1;
-            this.button_scheduleGen.Text = "Schedule";
+            this.button_scheduleGen.Text = "&Schedule";
             this.button_scheduleGen.UseVisualStyleBackColor = true;
             this.button_scheduleGen.Click += new System.EventHandler(this.button_scheduleGen_Click);
             // 
@@ -48,7 +48,7 @@
             this.button_calGen.Name = "button_calGen";
             this.button_calGen.Size = new System.Drawing.Size(151, 44);
             this.button_calGen.TabIndex = 2;
-            this.button_calGen.Text = "Calendar";
+            this.button_calGen.Text = "&Calendar";
             this.button_calGen.UseVisualStyleBackColor = true;
             this.button_calGen.Click += new System.EventHandler(this.button_calGen_Click);
             // 

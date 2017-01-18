@@ -10,7 +10,7 @@ namespace CodeGenMenetrend.ScheduleLib
     public class Station : IEquatable<Station>
     {
         public String _name;
-        public String Name { get { return _name; } }
+        public String Name { get { return _name; } set { _name = value; }  }
 
         public Station(String pName)
         {
