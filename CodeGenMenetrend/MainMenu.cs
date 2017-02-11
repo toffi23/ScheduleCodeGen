@@ -21,6 +21,7 @@ namespace CodeGenMenetrend
         {
             LabelCal calGen = new LabelCal(this);
             this.Hide();
+            calGen.Location = Cursor.Position;
             calGen.Show();
 
         }
@@ -29,6 +30,7 @@ namespace CodeGenMenetrend
         {
             ScheduleCreator schedCreator = new ScheduleCreator(this);
             this.Hide();
+            schedCreator.Location = Cursor.Position;
             schedCreator.Show();
         }
     }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.button_StationList = new System.Windows.Forms.Button();
+            this.button_lineList = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_StationList
@@ -41,11 +42,22 @@
             this.button_StationList.UseVisualStyleBackColor = true;
             this.button_StationList.Click += new System.EventHandler(this.button_StationList_Click);
             // 
+            // button_lineList
+            // 
+            this.button_lineList.Location = new System.Drawing.Point(13, 42);
+            this.button_lineList.Name = "button_lineList";
+            this.button_lineList.Size = new System.Drawing.Size(75, 23);
+            this.button_lineList.TabIndex = 1;
+            this.button_lineList.Text = "Line list";
+            this.button_lineList.UseVisualStyleBackColor = true;
+            this.button_lineList.Click += new System.EventHandler(this.button_lineList_Click);
+            // 
             // ScheduleCreator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(184, 163);
+            this.Controls.Add(this.button_lineList);
             this.Controls.Add(this.button_StationList);
             this.Name = "ScheduleCreator";
             this.Text = "ScheduleCreator";
@@ -57,5 +69,6 @@
         #endregion
 
         private System.Windows.Forms.Button button_StationList;
+        private System.Windows.Forms.Button button_lineList;
     }
 }

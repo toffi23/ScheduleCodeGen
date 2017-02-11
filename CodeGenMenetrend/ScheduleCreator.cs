@@ -52,9 +52,15 @@ namespace CodeGenMenetrend
         private void button_StationList_Click(object sender, EventArgs e)
         {
             StationListEditor editor = new StationListEditor(schedule.Stations);
+            editor.Location = Cursor.Position;
             editor.Show(this);
-            
+        }
 
+        private void button_lineList_Click(object sender, EventArgs e)
+        {
+            LineList editor = new LineList(schedule.Lines);
+            editor.Location = Cursor.Position;
+            editor.Show(this);
         }
     }
 }
