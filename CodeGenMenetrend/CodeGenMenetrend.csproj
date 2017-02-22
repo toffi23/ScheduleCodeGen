@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EditStation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EditStation.Designer.cs">
-      <DependentUpon>EditStation.cs</DependentUpon>
-    </Compile>
     <Compile Include="CodeGen.cs" />
     <Compile Include="dateCodes.cs" />
     <Compile Include="LabelCal.cs">
@@ -59,18 +53,6 @@
     </Compile>
     <Compile Include="LabelCal.Designer.cs">
       <DependentUpon>LabelCal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LineEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LineEdit.Designer.cs">
-      <DependentUpon>LineEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LineList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LineList.Designer.cs">
-      <DependentUpon>LineList.cs</DependentUpon>
     </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
@@ -80,34 +62,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScheduleCreator.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ScheduleCreator.Designer.cs">
-      <DependentUpon>ScheduleCreator.cs</DependentUpon>
-    </Compile>
     <Compile Include="ScheduleLib\Line.cs" />
     <Compile Include="ScheduleLib\Schedule.cs" />
+    <Compile Include="ScheduleLib\Start.cs" />
     <Compile Include="ScheduleLib\Station.cs" />
     <Compile Include="ScheduleLib\Stop.cs" />
     <Compile Include="ScheduleLib\Track.cs" />
-    <Compile Include="StationListEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="StationListEditor.Designer.cs">
-      <DependentUpon>StationListEditor.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="EditStation.resx">
-      <DependentUpon>EditStation.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="LabelCal.resx">
       <DependentUpon>LabelCal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LineEdit.resx">
-      <DependentUpon>LineEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LineList.resx">
-      <DependentUpon>LineList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
@@ -121,12 +83,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ScheduleCreator.resx">
-      <DependentUpon>ScheduleCreator.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="StationListEditor.resx">
-      <DependentUpon>StationListEditor.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

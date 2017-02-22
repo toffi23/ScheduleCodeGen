@@ -21,7 +21,7 @@ namespace CodeGenMenetrend
         private Color[] colors;
         private int[] dayCodes; 
 
-        private readonly int YEAR = 2016;
+        private readonly int YEAR = DateTime.Now.Year;
 
         private static readonly Color WORKDAY = Color.White;
         private static readonly Color NOSCHOOLWORK= Color.BlueViolet;
@@ -29,7 +29,7 @@ namespace CodeGenMenetrend
         private static readonly Color NOWORK = Color.Red;
 
         private readonly string CODESPATH = "dateCodes.xml";
-        private readonly string GENERATEDPATH = "ScheduleCalendar_initActiveCodes.txt";
+        private readonly string GENERATEDPATH = Directory.GetCurrentDirectory()+"\\ScheduleCalendar_initActiveCodes.txt";
 
         private Color SELECTCOLOR;
 
@@ -60,6 +60,8 @@ namespace CodeGenMenetrend
             radioWork.BackColor = WORKDAY;
             radioSun.BackColor = NOWORK;
             SELECTCOLOR = WORKDAY;
+
+            this.label_Title.Text = "Menetrendi naptár - " + YEAR;
 
             Panel[] months = { january, february, march, april, may, june, july, august, september, october, november, december };
 

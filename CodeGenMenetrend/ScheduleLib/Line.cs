@@ -10,12 +10,14 @@ namespace CodeGenMenetrend.ScheduleLib
     public class Line
     {
         public string ID { get; set; }
-        public List<Stop> Stops { get; private set; }
+        public List<Track> Stops { get; private set; }
+        public List<Start> Starts { get; private set; }
 
         public Line(string _id)
         {
             ID = _id;
-            Stops = new List<Stop>();
+            Stops = new List<Track>();
+            Starts = new List<Start>();
         }
 
         public override string ToString()

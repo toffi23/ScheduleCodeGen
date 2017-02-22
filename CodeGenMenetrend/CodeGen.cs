@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace CodeGenMenetrend
 {
-    class CodeGen
+    public class CodeGen
     {
         public static readonly int WORKDAY = 1;
         public static readonly int NOSCHOOLWORK = 2;
@@ -92,13 +92,6 @@ namespace CodeGenMenetrend
             //Console.WriteLine(Output);
         }
 
-        private string buildOneDay(DateTime date)
-        {
-            string dayStr = "";
-
-            return dayStr;
-        }
-
         public void writeToFile(string path)
         {
             StreamWriter writer = null; ;
@@ -108,6 +101,7 @@ namespace CodeGenMenetrend
                 //Console.Write(Output);
                 writer.Write(Output);
                 writer.Close();
+                MessageBox.Show("Code generation is finished: " + path);
                 writer.Dispose();
             }
             catch(FileNotFoundException ex)

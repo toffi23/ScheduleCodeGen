@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CodeGenMenetrend.ScheduleLib
 {
     [Serializable]
-    class Track
+    public class Track
     {
         public List<Stop> Stops { get; private set; }
 

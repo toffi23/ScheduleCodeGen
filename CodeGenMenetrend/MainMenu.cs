@@ -15,6 +15,7 @@ namespace CodeGenMenetrend
         public MainMenu()
         {
             InitializeComponent();
+            this.Location = Cursor.Position;
         }
 
         private void button_calGen_Click(object sender, EventArgs e)
@@ -28,10 +29,7 @@ namespace CodeGenMenetrend
 
         private void button_scheduleGen_Click(object sender, EventArgs e)
         {
-            ScheduleCreator schedCreator = new ScheduleCreator(this);
-            this.Hide();
-            schedCreator.Location = Cursor.Position;
-            schedCreator.Show();
+            MessageBox.Show("Not implemented yet, please return later.");
         }
     }
 }

@@ -136,7 +136,7 @@
             this.label92 = new System.Windows.Forms.Label();
             this.label93 = new System.Windows.Forms.Label();
             this.label94 = new System.Windows.Forms.Label();
-            this.label95 = new System.Windows.Forms.Label();
+            this.label_Title = new System.Windows.Forms.Label();
             this.radioNoschool = new System.Windows.Forms.RadioButton();
             this.radioFree = new System.Windows.Forms.RadioButton();
             this.radioSun = new System.Windows.Forms.RadioButton();
@@ -1308,15 +1308,15 @@
             this.label94.TabIndex = 0;
             this.label94.Text = "Július";
             // 
-            // label95
+            // label_Title
             // 
-            this.label95.AutoSize = true;
-            this.label95.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label95.Location = new System.Drawing.Point(735, 27);
-            this.label95.Name = "label95";
-            this.label95.Size = new System.Drawing.Size(259, 24);
-            this.label95.TabIndex = 17;
-            this.label95.Text = "2016-os menetrendi naptár";
+            this.label_Title.AutoSize = true;
+            this.label_Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_Title.Location = new System.Drawing.Point(735, 27);
+            this.label_Title.Name = "label_Title";
+            this.label_Title.Size = new System.Drawing.Size(259, 24);
+            this.label_Title.TabIndex = 17;
+            this.label_Title.Text = "2016-os menetrendi naptár";
             // 
             // radioNoschool
             // 
@@ -1388,7 +1388,7 @@
             this.Controls.Add(this.radioSun);
             this.Controls.Add(this.radioFree);
             this.Controls.Add(this.radioNoschool);
-            this.Controls.Add(this.label95);
+            this.Controls.Add(this.label_Title);
             this.Controls.Add(this.december);
             this.Controls.Add(this.june);
             this.Controls.Add(this.november);
@@ -1543,7 +1543,7 @@
         private System.Windows.Forms.Label label92;
         private System.Windows.Forms.Label label93;
         private System.Windows.Forms.Label label94;
-        private System.Windows.Forms.Label label95;
+        private System.Windows.Forms.Label label_Title;
         private System.Windows.Forms.RadioButton radioNoschool;
         private System.Windows.Forms.RadioButton radioFree;
         private System.Windows.Forms.RadioButton radioSun;
