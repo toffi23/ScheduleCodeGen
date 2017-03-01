@@ -17,6 +17,5 @@ namespace CodeGenMenetrend.ScheduleLib
             _stations = new BindingList<Station>();
             _lines = new BindingList<Line>();
         }
-        
     }
 }

@@ -159,7 +159,7 @@ namespace CodeGenMenetrend
                 if (newCal)
                 {
                     colors[date.DayOfYear] = WORKDAY;
-                    dayCodes[date.DayOfYear] = CodeGen.WORKDAY;
+                    dayCodes[date.DayOfYear] = DateCodeGen.WORKDAY;
                 }
 
                 
@@ -237,10 +237,10 @@ namespace CodeGenMenetrend
             colors[date.DayOfYear] = SELECTCOLOR;
 
             dayCodes[date.DayOfYear] =
-                SELECTCOLOR == WORKDAY ? CodeGen.WORKDAY :
-                SELECTCOLOR == NOSCHOOLWORK ? CodeGen.NOSCHOOLWORK :
-                SELECTCOLOR == FREEDAY ? CodeGen.FREEDAY :
-                SELECTCOLOR == NOWORK ? CodeGen.NOWORK :
+                SELECTCOLOR == WORKDAY ? DateCodeGen.WORKDAY :
+                SELECTCOLOR == NOSCHOOLWORK ? DateCodeGen.NOSCHOOLWORK :
+                SELECTCOLOR == FREEDAY ? DateCodeGen.FREEDAY :
+                SELECTCOLOR == NOWORK ? DateCodeGen.NOWORK :
                 0;
 
                 
@@ -273,7 +273,7 @@ namespace CodeGenMenetrend
 
         private void button_gencode_Click(object sender, EventArgs e)
         {
-            CodeGen gen = new CodeGen(dayCodes, YEAR);
+            DateCodeGen gen = new DateCodeGen(dayCodes, YEAR);
             gen.buildFunction();
             gen.writeToFile(GENERATEDPATH);
         }

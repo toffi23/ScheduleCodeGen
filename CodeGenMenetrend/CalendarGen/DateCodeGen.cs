@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace CodeGenMenetrend
 {
-    public class CodeGen
+    public class DateCodeGen
     {
         public static readonly int WORKDAY = 1;
         public static readonly int NOSCHOOLWORK = 2;
@@ -35,7 +35,7 @@ namespace CodeGenMenetrend
             "NOWORK"
         };
 
-        public CodeGen(int[] pDayCodes, int pYear)
+        public DateCodeGen(int[] pDayCodes, int pYear)
         {
             Output = "";
             tab = "    ";

@@ -29,7 +29,10 @@ namespace CodeGenMenetrend
 
         private void button_scheduleGen_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Not implemented yet, please return later.");
+            ScheduleEditor scheduleEditor = new ScheduleEditor(this);
+            this.Hide();
+            scheduleEditor.Location = Cursor.Position;
+            scheduleEditor.Show();
         }
     }
 }
