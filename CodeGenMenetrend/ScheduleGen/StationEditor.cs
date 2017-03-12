@@ -16,14 +16,22 @@ namespace CodeGenMenetrend.ScheduleGen
             {
                 this.Station = pStation;
                 this.Name = this.Station.Name;
+                this.textBoxStationName.Text = this.Station.Name;
             }
             else
             {
                 this.Name = "Új megálló";
             }
+
+            this.AcceptButton = this.button1;
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            acceptData();
+        }
+
+        private void acceptData()
         {
             if (Station == null)
             {
@@ -33,8 +41,11 @@ namespace CodeGenMenetrend.ScheduleGen
             }
             else
             {
-
+                Station.Name = this.textBoxStationName.Text;
+                this.DialogResult = DialogResult.OK;
             }
         }
+
+
     }
 }

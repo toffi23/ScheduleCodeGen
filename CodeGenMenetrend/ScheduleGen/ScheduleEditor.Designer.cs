@@ -31,7 +31,7 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.button_Add = new System.Windows.Forms.Button();
             this.button_Remove = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_Edit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // treeView1
@@ -47,7 +47,7 @@
             this.button_Add.Name = "button_Add";
             this.button_Add.Size = new System.Drawing.Size(75, 23);
             this.button_Add.TabIndex = 1;
-            this.button_Add.Text = "AddAdd";
+            this.button_Add.Text = "&Add";
             this.button_Add.UseVisualStyleBackColor = true;
             this.button_Add.Click += new System.EventHandler(this.button_Add_Click);
             // 
@@ -60,21 +60,22 @@
             this.button_Remove.Text = "Remove";
             this.button_Remove.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // button_Edit
             // 
-            this.button1.Location = new System.Drawing.Point(388, 104);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Edit";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button_Edit.Location = new System.Drawing.Point(388, 104);
+            this.button_Edit.Name = "button_Edit";
+            this.button_Edit.Size = new System.Drawing.Size(75, 23);
+            this.button_Edit.TabIndex = 3;
+            this.button_Edit.Text = "Edit";
+            this.button_Edit.UseVisualStyleBackColor = true;
+            this.button_Edit.Click += new System.EventHandler(this.button_Edit_Click);
             // 
             // ScheduleEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 594);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_Edit);
             this.Controls.Add(this.button_Remove);
             this.Controls.Add(this.button_Add);
             this.Controls.Add(this.treeView1);
@@ -90,6 +91,6 @@
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Button button_Add;
         private System.Windows.Forms.Button button_Remove;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_Edit;
     }
 }

@@ -159,5 +159,51 @@ namespace CodeGenMenetrend
             node.Tag = newNode;
             parent.Nodes.Add(node);
         }
+
+        private void button_Edit_Click(object sender, EventArgs e)
+        {
+            TreeNode node = this.treeView1.SelectedNode;
+            this.treeView1.Select();
+
+            if (node == null)
+            {
+                MessageBox.Show("Nincs kijelölt elem.");
+                return;
+            }
+
+            var item = node.Tag;
+
+            if (item == _schedule)
+            {
+                // Do nothing with root node
+                MessageBox.Show("Schedule root node");
+                return;
+            }
+
+            if (item == _schedule.Lines)
+            {
+                MessageBox.Show("Lines is selected");
+                return;
+            }
+
+            if (item == _schedule.Stations)
+            {
+                MessageBox.Show("Stations is selected");
+                return;
+            }
+
+            if(item is Station)
+            {
+                var editor = new StationEditor((Station)item);
+                editor.ShowDialog();
+                editor.Location = Cursor.Position;
+                if (editor.DialogResult == DialogResult.OK)
+                {
+                    node.Text = ((Station)item).ToString();
+                }
+                return;
+            }
+
+        }
     }
 }
