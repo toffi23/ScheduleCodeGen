@@ -129,13 +129,20 @@ namespace CodeGenMenetrend
             if(node.Tag == _schedule)
             {
                 // Do nothing with root node
-                MessageBox.Show("schedule root node");
                 return;
             }
 
             if(node.Tag == _schedule.Lines)
             {
-                MessageBox.Show("Lines is selected");
+                var editor = new LineEditor();
+                editor.ShowDialog();
+                editor.Location = Cursor.Position;
+                if(editor.DialogResult == DialogResult.OK)
+                {
+                    _schedule.Lines.Add(editor.Line);
+                    addNode(editor.Line, node);
+                }
+
                 return; 
             }
 
@@ -151,6 +158,7 @@ namespace CodeGenMenetrend
                 }
                 return;
             }
+
         }
 
         private void addNode(object newNode,TreeNode parent)
@@ -200,6 +208,18 @@ namespace CodeGenMenetrend
                 if (editor.DialogResult == DialogResult.OK)
                 {
                     node.Text = ((Station)item).ToString();
+                }
+                return;
+            }
+
+            if(item is Line)
+            {
+                var editor = new LineEditor((Line)item);
+                editor.ShowDialog();
+                editor.Location = Cursor.Position;
+                if (editor.DialogResult == DialogResult.OK)
+                {
+                    node.Text = ((Line)item).ToString();
                 }
                 return;
             }
