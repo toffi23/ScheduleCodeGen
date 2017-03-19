@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodeGenMenetrend.ScheduleLib
 {
+    [Serializable]
     public class Start
     {
         public DateTime StartTime { get; set; }

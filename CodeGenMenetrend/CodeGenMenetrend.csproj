@@ -80,6 +80,12 @@
     <Compile Include="ScheduleGen\StationEditor.Designer.cs">
       <DependentUpon>StationEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="ScheduleGen\StopEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScheduleGen\StopEditor.Designer.cs">
+      <DependentUpon>StopEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScheduleLib\Line.cs" />
     <Compile Include="ScheduleLib\Schedule.cs" />
     <Compile Include="ScheduleLib\Start.cs" />
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ScheduleGen\StationEditor.resx">
       <DependentUpon>StationEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScheduleGen\StopEditor.resx">
+      <DependentUpon>StopEditor.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System;
+using System.Collections.Generic;
 
 namespace CodeGenMenetrend
 {
@@ -60,8 +61,14 @@ namespace CodeGenMenetrend
             // Add Station nodes 
             foreach(var station in _schedule.Stations)
             {
-                Console.WriteLine(station.ToString());
                 addNode(station, root.Nodes[0]);
+            }
+
+            // Add Line nodes
+            foreach(var line in _schedule.Lines)
+            {
+                TreeNode node = addNode(line, root.Nodes[1]);
+                node.Nodes.Add("Útvonalak");
             }
 
             // Expand main nodes
@@ -140,7 +147,8 @@ namespace CodeGenMenetrend
                 if(editor.DialogResult == DialogResult.OK)
                 {
                     _schedule.Lines.Add(editor.Line);
-                    addNode(editor.Line, node);
+                    TreeNode newNode = addNode(editor.Line, node);
+                    newNode.Nodes.Add("Útvonalak").Tag = editor.Line.Tracks;
                 }
 
                 return; 
@@ -159,13 +167,41 @@ namespace CodeGenMenetrend
                 return;
             }
 
-        }
+            if (node.Tag is ICollection<Track>)
+            {
+                Line line = (Line)node.Parent.Tag;
+                int trackNr = line.Tracks.Count + 1;
+                TreeNode trackNode = new TreeNode(trackNr.ToString());
+                Track newTrack = new Track();
+                trackNode.Tag = newTrack;
+                line.Tracks.Add(newTrack);
+                node.Nodes.Add(trackNode);
+            }
 
-        private void addNode(object newNode,TreeNode parent)
+            if(node.Tag is Track)
+            {
+                Track track = (Track)node.Tag;
+                var editor = new StopEditor(_schedule.Stations);
+                editor.ShowDialog();
+                editor.Location = Cursor.Position;
+                if(editor.DialogResult == DialogResult.OK)
+                {
+                    track.Stops.Add(editor.Stop);
+                    addNode(editor.Stop, node);
+                }
+            }
+
+        }
+        /**
+        * Return the TreeNode created from the object newNode
+        */
+        private TreeNode addNode(object newNode,TreeNode parent)
         {
             var node = new TreeNode(newNode.ToString());
             node.Tag = newNode;
             parent.Nodes.Add(node);
+
+            return node;
         }
 
         private void button_Edit_Click(object sender, EventArgs e)
@@ -222,6 +258,17 @@ namespace CodeGenMenetrend
                     node.Text = ((Line)item).ToString();
                 }
                 return;
+            }
+
+            if (item is Stop)
+            {
+                var editor = new StopEditor(_schedule.Stations,(Stop)item);
+                editor.ShowDialog();
+                editor.Location = Cursor.Position;
+                if (editor.DialogResult == DialogResult.OK)
+                {
+                    node.Text = ((Stop)item).ToString();
+                }
             }
 
         }

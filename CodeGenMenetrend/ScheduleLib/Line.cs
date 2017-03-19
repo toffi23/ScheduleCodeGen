@@ -10,19 +10,59 @@ namespace CodeGenMenetrend.ScheduleLib
     public class Line
     {
         public string ID { get; set; }
-        public List<Track> Stops { get; private set; }
+        public List<Track> Tracks { get; private set; }
         public List<Start> Starts { get; private set; }
 
         public Line(string _id)
         {
             ID = _id;
-            Stops = new List<Track>();
+            Tracks = new List<Track>();
             Starts = new List<Start>();
         }
 
         public override string ToString()
         {
-            return ID;
+            if(Tracks.Count > 0)
+            {
+                StringBuilder sb = new StringBuilder();
+                return sb.Append(ID)
+                            .Append(" | ")
+                            .Append(getFirstStop().Station.Name)
+                            .Append(" - ")
+                            .Append(getLastStop().Station.Name).ToString();
+            }
+            else
+            {
+                return ID;
+            }
+        }
+
+        private Stop getFirstStop()
+        {
+            Track longestTrack = Tracks.First();
+            foreach(var track in Tracks)
+            {
+                if(track.Stops.Count > longestTrack.Stops.Count)
+                {
+                    longestTrack = track;
+                }
+            }
+
+            return longestTrack.Stops.First();
+        }
+
+        private Stop getLastStop()
+        {
+            Track longestTrack = Tracks.First();
+            foreach (var track in Tracks)
+            {
+                if (track.Stops.Count > longestTrack.Stops.Count)
+                {
+                    longestTrack = track;
+                }
+            }
+
+            return longestTrack.Stops.Last();
         }
 
     }
