@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace CodeGenMenetrend.ScheduleGen
 {
@@ -29,7 +30,9 @@ namespace CodeGenMenetrend.ScheduleGen
                 this.Name = "Új állomás";
             }
 
-            this.listBox1.DataSource = pStations;
+            var stationList = pStations.OrderBy(x => x.Name).ToList();
+
+            this.listBox1.DataSource = stationList;
             this.AcceptButton = this.button1;
         }
 
@@ -52,6 +55,11 @@ namespace CodeGenMenetrend.ScheduleGen
             }
 
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void numericUpDown1_Enter(object sender, EventArgs e)
+        {
+            this.numericUpDown1.Select(0, numericUpDown1.Value.ToString().Length);
         }
     }
 }
