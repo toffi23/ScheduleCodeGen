@@ -40,7 +40,6 @@ namespace CodeGenMenetrend.ScheduleGen
 
         private void acceptData()
         {
-            MessageBox.Show(listBox1.SelectedItem.ToString());
             if(this.Stop == null)
             {
                 Station station = (Station)this.listBox1.SelectedItem;

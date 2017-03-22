@@ -68,11 +68,38 @@ namespace CodeGenMenetrend
             foreach(var line in _schedule.Lines)
             {
                 TreeNode node = addNode(line, root.Nodes[1]);
-                node.Nodes.Add("Útvonalak");
+                node.Nodes.Add(drawTracks(line));
             }
 
             // Expand main nodes
-            root.ExpandAll();
+            root.Expand();
+        }
+
+        private TreeNode drawTracks(Line pLine)
+        {
+            TreeNode tracksNode = new TreeNode("Útvonalak");
+            tracksNode.Tag = pLine.Tracks;
+            int trackNum = 0;
+            
+            foreach(var track in pLine.Tracks)
+            {
+                var trNode = new TreeNode((++trackNum).ToString());
+                trNode.Tag = track;
+                foreach(var stop in track.Stops)
+                {
+                    var stopNode = new TreeNode(stop.ToString());
+                    stopNode.Tag = stop;
+                    trNode.Nodes.Add(stopNode);
+                }
+                tracksNode.Nodes.Add(trNode);
+            }
+
+            return tracksNode;
+        }
+
+        private void updateLineNodeName(TreeNode pLineNode)
+        {
+            pLineNode.Text = ((Line)pLineNode.Tag).ToString();
         }
 
         private Schedule DeSerialize()
@@ -188,6 +215,7 @@ namespace CodeGenMenetrend
                 {
                     track.Stops.Add(editor.Stop);
                     addNode(editor.Stop, node);
+                    updateLineNodeName(node.Parent.Parent);
                 }
             }
 

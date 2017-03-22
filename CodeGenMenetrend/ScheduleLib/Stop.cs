@@ -20,7 +20,7 @@ namespace CodeGenMenetrend.ScheduleLib
 
         public override string ToString()
         {
-            return Station.ToString() + " - " + Delay.ToString();
+            return Delay.ToString() + " - " + Station.ToString();
         }
     }
 }
