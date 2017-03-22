@@ -300,5 +300,11 @@ namespace CodeGenMenetrend
             }
 
         }
+
+        private void button_Remove_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(@"Sajnálom, de ez a funkció még nincs implementálva :(."+Environment.NewLine+
+                "További információért lépj kapcsolatba a fejlesztővel: Maschefszki Tamás");
+        }
     }
 }
