@@ -26,7 +26,7 @@ namespace CodeGenMenetrend.ScheduleLib
 
         public override string ToString()
         {
-            return string.Format(StartTime.ToString("hh:mm"));
+            return string.Format(StartTime.ToString("HH:mm")+" | Útvonal: " +Route.ToString() + " | Aktív: " + StartCode.ToString());
         }
     }
 }

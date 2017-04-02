@@ -21,7 +21,7 @@ namespace CodeGenMenetrend.ScheduleGen
             InitializeComponent();
 
             this.dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            this.dateTimePicker1.CustomFormat = "hh:mm";
+            this.dateTimePicker1.CustomFormat = "HH:mm";
             this.listBox1.DataSource = pTracks;
             this.AcceptButton = this.button1;
             this.dateTimePicker2.MinDate = new DateTime(DateTime.Now.Year,1,1);
