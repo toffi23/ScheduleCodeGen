@@ -328,6 +328,18 @@ namespace CodeGenMenetrend
                 }
             }
 
+            if (item is Start)
+            {
+                Line line = (Line)node.Parent.Tag;
+                var editor = new StartEditor(line.Tracks,(Start)node.Tag);
+                editor.ShowDialog();
+                editor.Location = Cursor.Position;
+                if (editor.DialogResult == DialogResult.OK)
+                {
+                    node.Text = ((Start)item).ToString();
+                }
+            }
+
         }
 
         private void button_Remove_Click(object sender, EventArgs e)

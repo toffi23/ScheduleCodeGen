@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CodeGenMenetrend
+namespace CodeGenMenetrend.CalendarGen
 {
     public class DateCodeGen
     {

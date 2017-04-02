@@ -38,7 +38,6 @@
             this.radioButton_NOSCHOOLWORK = new System.Windows.Forms.RadioButton();
             this.radioButton_FREEDAY = new System.Windows.Forms.RadioButton();
             this.radioButton_NOWORK = new System.Windows.Forms.RadioButton();
-            this.checkBox_Special = new System.Windows.Forms.CheckBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -56,7 +55,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 249);
+            this.button1.Location = new System.Drawing.Point(15, 197);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -143,20 +142,9 @@
             this.radioButton_NOWORK.Text = "NOWORK";
             this.radioButton_NOWORK.UseVisualStyleBackColor = true;
             // 
-            // checkBox_Special
-            // 
-            this.checkBox_Special.AutoSize = true;
-            this.checkBox_Special.Location = new System.Drawing.Point(115, 143);
-            this.checkBox_Special.Name = "checkBox_Special";
-            this.checkBox_Special.Size = new System.Drawing.Size(151, 17);
-            this.checkBox_Special.TabIndex = 11;
-            this.checkBox_Special.Text = "Meghatározott időszakban";
-            this.checkBox_Special.UseVisualStyleBackColor = true;
-            this.checkBox_Special.CheckedChanged += new System.EventHandler(this.checkBox_Special_CheckedChanged);
-            // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(116, 166);
+            this.dateTimePicker2.Location = new System.Drawing.Point(116, 124);
             this.dateTimePicker2.MinDate = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(80, 20);
@@ -165,7 +153,7 @@
             // 
             // dateTimePicker3
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(116, 192);
+            this.dateTimePicker3.Location = new System.Drawing.Point(116, 150);
             this.dateTimePicker3.MinDate = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(80, 20);
@@ -175,7 +163,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(202, 172);
+            this.label4.Location = new System.Drawing.Point(202, 130);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(21, 13);
             this.label4.TabIndex = 14;
@@ -184,7 +172,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(202, 198);
+            this.label5.Location = new System.Drawing.Point(202, 156);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(18, 13);
             this.label5.TabIndex = 15;
@@ -194,12 +182,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(275, 285);
+            this.ClientSize = new System.Drawing.Size(271, 251);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dateTimePicker3);
             this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.checkBox_Special);
             this.Controls.Add(this.radioButton_NOWORK);
             this.Controls.Add(this.radioButton_FREEDAY);
             this.Controls.Add(this.radioButton_NOSCHOOLWORK);
@@ -228,7 +215,6 @@
         private System.Windows.Forms.RadioButton radioButton_NOSCHOOLWORK;
         private System.Windows.Forms.RadioButton radioButton_FREEDAY;
         private System.Windows.Forms.RadioButton radioButton_NOWORK;
-        private System.Windows.Forms.CheckBox checkBox_Special;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.Label label4;

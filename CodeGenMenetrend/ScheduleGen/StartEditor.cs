@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CodeGenMenetrend.CalendarGen;
 
 namespace CodeGenMenetrend.ScheduleGen
 {
@@ -23,6 +24,11 @@ namespace CodeGenMenetrend.ScheduleGen
             {
                 Start = pStart;
                 this.Name = Start.ToString();
+                this.dateTimePicker1.Value = Start.StartTime;
+                this.dateTimePicker2.Value = new DateTime(Start.StartTime.Year, 1, 1).AddDays(Start.ActiveFrom - 1);
+                this.dateTimePicker3.Value = new DateTime(Start.StartTime.Year, 1, 1).AddDays(Start.ActiveTill - 1);
+                this.listBox1.SelectedItem = Start.Route;
+                selectActiveCodeRadioButton(Start.StartCode);
             }
             else
             {
@@ -43,40 +49,77 @@ namespace CodeGenMenetrend.ScheduleGen
             this.dateTimePicker3.Value = DateTime.Now;
             this.dateTimePicker3.Format = DateTimePickerFormat.Custom;
             this.dateTimePicker3.CustomFormat = "MM.dd";
+        }
 
-            if (this.checkBox_Special.Checked)
+        private void selectActiveCodeRadioButton(int code)
+        {
+            switch (code)
             {
-                this.dateTimePicker2.Show();
-                this.dateTimePicker3.Show();
-                this.label4.Show();
-                this.label5.Show();
-            }
-            else
-            {
-                this.dateTimePicker2.Hide();
-                this.dateTimePicker3.Hide();
-                this.label4.Hide();
-                this.label5.Hide();
+                case 1:
+                    this.radioButton_FREEDAY.Checked = false;
+                    this.radioButton_NOSCHOOLWORK.Checked = false;
+                    this.radioButton_NOWORK.Checked = false;
+                    this.radioButton_WORKDAY.Checked = true;
+                    break;
+                case 2:
+                    this.radioButton_FREEDAY.Checked = false;
+                    this.radioButton_NOSCHOOLWORK.Checked = true;
+                    this.radioButton_NOWORK.Checked = false;
+                    this.radioButton_WORKDAY.Checked = false;
+                    break;
+                case 3:
+                    this.radioButton_FREEDAY.Checked = true;
+                    this.radioButton_NOSCHOOLWORK.Checked = false;
+                    this.radioButton_NOWORK.Checked = false;
+                    this.radioButton_WORKDAY.Checked = false;
+                    break;
+                case 4:
+                    this.radioButton_FREEDAY.Checked = false;
+                    this.radioButton_NOSCHOOLWORK.Checked = false;
+                    this.radioButton_NOWORK.Checked = true;
+                    this.radioButton_WORKDAY.Checked = false;
+                    break;
+            default:
+                    this.radioButton_FREEDAY.Checked = false;
+                    this.radioButton_NOSCHOOLWORK.Checked = false;
+                    this.radioButton_NOWORK.Checked = false;
+                    this.radioButton_WORKDAY.Checked = false;
+                    break;
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            int from = 0;
+            int till = 0;
+            from = dateTimePicker2.Value.DayOfYear;
+            till = dateTimePicker3.Value.DayOfYear;
 
-        }
+            Track track = (Track)listBox1.SelectedItem;
 
-        private void checkBox_Special_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.checkBox_Special.Checked)
+            if (Start == null)
             {
-                this.dateTimePicker2.Show();
-                this.dateTimePicker3.Show();
+                Start = new Start(dateTimePicker1.Value, CheckActiveCode(), track, from, till);
             }
             else
             {
-                this.dateTimePicker2.Hide();
-                this.dateTimePicker3.Hide();
+                Start.StartTime = dateTimePicker1.Value;
+                Start.StartCode = CheckActiveCode();
+                Start.Route = track;
+                Start.ActiveFrom = from;
+                Start.ActiveTill = till;
             }
+
+            DialogResult = DialogResult.OK;
+        }
+
+        private int CheckActiveCode()
+        {
+            if (radioButton_FREEDAY.Checked) { return CalendarGen.DateCodeGen.FREEDAY; }
+            else if (radioButton_NOSCHOOLWORK.Checked) { return CalendarGen.DateCodeGen.NOSCHOOLWORK; }
+            else if (radioButton_NOWORK.Checked) { return CalendarGen.DateCodeGen.NOWORK; }
+            else if (radioButton_WORKDAY.Checked) { return CalendarGen.DateCodeGen.WORKDAY; }
+            else { return CalendarGen.DateCodeGen.WORKDAY; };
         }
     }
 }

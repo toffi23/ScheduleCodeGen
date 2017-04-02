@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace CodeGenMenetrend
+namespace CodeGenMenetrend.CalendarGen
 {
     [Serializable]
     public class dateCodes
