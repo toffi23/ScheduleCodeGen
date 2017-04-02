@@ -69,6 +69,7 @@ namespace CodeGenMenetrend
             {
                 TreeNode node = addNode(line, root.Nodes[1]);
                 node.Nodes.Add(drawTracks(line));
+                node.Nodes.Add(drawStarts(line));
             }
 
             // Expand main nodes
@@ -95,6 +96,21 @@ namespace CodeGenMenetrend
             }
 
             return tracksNode;
+        }
+
+        private TreeNode drawStarts(Line pLine)
+        {
+            TreeNode startsNode = new TreeNode("Indulási idők");
+            startsNode.Tag = pLine.Starts;
+
+            foreach(var start in pLine.Starts)
+            {
+                var sNode = new TreeNode(start.ToString());
+                sNode.Tag = start;
+                startsNode.Nodes.Add(sNode);
+            }
+
+            return startsNode;
         }
 
         private void updateLineNodeName(TreeNode pLineNode)
@@ -199,7 +215,7 @@ namespace CodeGenMenetrend
                 Line line = (Line)node.Parent.Tag;
                 int trackNr = line.Tracks.Count + 1;
                 TreeNode trackNode = new TreeNode(trackNr.ToString());
-                Track newTrack = new Track();
+                Track newTrack = new Track(trackNr);
                 trackNode.Tag = newTrack;
                 line.Tracks.Add(newTrack);
                 node.Nodes.Add(trackNode);
@@ -216,6 +232,19 @@ namespace CodeGenMenetrend
                     track.Stops.Add(editor.Stop);
                     addNode(editor.Stop, node);
                     updateLineNodeName(node.Parent.Parent);
+                }
+            }
+
+            if(node.Tag is ICollection<Start>)
+            {
+                Line line = (Line)node.Parent.Tag;
+                var editor = new StartEditor(line.Tracks);
+                editor.ShowDialog();
+                editor.Location = Cursor.Position;
+                if(editor.DialogResult == DialogResult.OK)
+                {
+                    line.Starts.Add(editor.Start);
+                    addNode(editor.Start, node);
                 }
             }
 
