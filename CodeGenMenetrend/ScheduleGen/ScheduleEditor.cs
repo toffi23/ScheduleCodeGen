@@ -330,7 +330,7 @@ namespace CodeGenMenetrend
 
             if (item is Start)
             {
-                Line line = (Line)node.Parent.Tag;
+                Line line = (Line)node.Parent.Parent.Tag;
                 var editor = new StartEditor(line.Tracks,(Start)node.Tag);
                 editor.ShowDialog();
                 editor.Location = Cursor.Position;

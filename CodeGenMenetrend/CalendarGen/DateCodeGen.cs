@@ -12,8 +12,8 @@ namespace CodeGenMenetrend.CalendarGen
     {
         public static readonly int WORKDAY = 1;
         public static readonly int NOSCHOOLWORK = 2;
-        public static readonly int FREEDAY = 3;
-        public static readonly int NOWORK = 4;
+        public static readonly int FREEDAY = 4;
+        public static readonly int NOWORK = 8;
 
         private String Output;
 

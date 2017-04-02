@@ -20,7 +20,22 @@ namespace CodeGenMenetrend.ScheduleGen
         {
             InitializeComponent();
 
-            if(pStart != null)
+            this.dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            this.dateTimePicker1.CustomFormat = "hh:mm";
+            this.listBox1.DataSource = pTracks;
+            this.AcceptButton = this.button1;
+            this.dateTimePicker2.MinDate = new DateTime(DateTime.Now.Year,1,1);
+            this.dateTimePicker2.MaxDate = new DateTime(DateTime.Now.Year, 12, 31);
+            this.dateTimePicker2.Value = new DateTime(DateTime.Now.Year, 1, 1);
+            this.dateTimePicker2.Format = DateTimePickerFormat.Custom;
+            this.dateTimePicker2.CustomFormat = "MM.dd";
+            this.dateTimePicker3.MinDate = new DateTime(DateTime.Now.Year, 1, 1);
+            this.dateTimePicker3.MaxDate = new DateTime(DateTime.Now.Year, 12, 31);
+            this.dateTimePicker3.Value = new DateTime(DateTime.Now.Year, 12, 31); ;
+            this.dateTimePicker3.Format = DateTimePickerFormat.Custom;
+            this.dateTimePicker3.CustomFormat = "MM.dd";
+
+            if (pStart != null)
             {
                 Start = pStart;
                 this.Name = Start.ToString();
@@ -34,57 +49,28 @@ namespace CodeGenMenetrend.ScheduleGen
             {
                 this.Name = "Új indulási idő";
             }
-
-            this.dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            this.dateTimePicker1.CustomFormat = "hh:mm";
-            this.listBox1.DataSource = pTracks;
-            this.AcceptButton = this.button1;
-            this.dateTimePicker2.MinDate = new DateTime(DateTime.Now.Year,1,1);
-            this.dateTimePicker2.MaxDate = new DateTime(DateTime.Now.Year, 12, 31);
-            this.dateTimePicker2.Value = DateTime.Now;
-            this.dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            this.dateTimePicker2.CustomFormat = "MM.dd";
-            this.dateTimePicker3.MinDate = new DateTime(DateTime.Now.Year, 1, 1);
-            this.dateTimePicker3.MaxDate = new DateTime(DateTime.Now.Year, 12, 31);
-            this.dateTimePicker3.Value = DateTime.Now;
-            this.dateTimePicker3.Format = DateTimePickerFormat.Custom;
-            this.dateTimePicker3.CustomFormat = "MM.dd";
         }
 
         private void selectActiveCodeRadioButton(int code)
         {
-            switch (code)
+            if((code & DateCodeGen.FREEDAY) > 0)
             {
-                case 1:
-                    this.radioButton_FREEDAY.Checked = false;
-                    this.radioButton_NOSCHOOLWORK.Checked = false;
-                    this.radioButton_NOWORK.Checked = false;
-                    this.radioButton_WORKDAY.Checked = true;
-                    break;
-                case 2:
-                    this.radioButton_FREEDAY.Checked = false;
-                    this.radioButton_NOSCHOOLWORK.Checked = true;
-                    this.radioButton_NOWORK.Checked = false;
-                    this.radioButton_WORKDAY.Checked = false;
-                    break;
-                case 3:
-                    this.radioButton_FREEDAY.Checked = true;
-                    this.radioButton_NOSCHOOLWORK.Checked = false;
-                    this.radioButton_NOWORK.Checked = false;
-                    this.radioButton_WORKDAY.Checked = false;
-                    break;
-                case 4:
-                    this.radioButton_FREEDAY.Checked = false;
-                    this.radioButton_NOSCHOOLWORK.Checked = false;
-                    this.radioButton_NOWORK.Checked = true;
-                    this.radioButton_WORKDAY.Checked = false;
-                    break;
-            default:
-                    this.radioButton_FREEDAY.Checked = false;
-                    this.radioButton_NOSCHOOLWORK.Checked = false;
-                    this.radioButton_NOWORK.Checked = false;
-                    this.radioButton_WORKDAY.Checked = false;
-                    break;
+                checkBox_FREEDAY.Checked = true;
+            }
+
+            if ((code & DateCodeGen.NOSCHOOLWORK) > 0)
+            {
+                checkBox_NOSCHOOLWORK.Checked = true;
+            }
+
+            if ((code & DateCodeGen.NOWORK) > 0)
+            {
+                checkBox_NOWORK.Checked = true;
+            }
+
+            if ((code & DateCodeGen.WORKDAY) > 0)
+            {
+                checkBox_WORKDAY.Checked = true;
             }
         }
 
@@ -115,11 +101,14 @@ namespace CodeGenMenetrend.ScheduleGen
 
         private int CheckActiveCode()
         {
-            if (radioButton_FREEDAY.Checked) { return CalendarGen.DateCodeGen.FREEDAY; }
-            else if (radioButton_NOSCHOOLWORK.Checked) { return CalendarGen.DateCodeGen.NOSCHOOLWORK; }
-            else if (radioButton_NOWORK.Checked) { return CalendarGen.DateCodeGen.NOWORK; }
-            else if (radioButton_WORKDAY.Checked) { return CalendarGen.DateCodeGen.WORKDAY; }
-            else { return CalendarGen.DateCodeGen.WORKDAY; };
+            int activeCode = 0;
+
+            if (checkBox_WORKDAY.Checked) { activeCode |= DateCodeGen.WORKDAY; }
+            if (checkBox_FREEDAY.Checked) { activeCode |= DateCodeGen.FREEDAY; }
+            if (checkBox_NOSCHOOLWORK.Checked) { activeCode |= DateCodeGen.NOSCHOOLWORK; }
+            if (checkBox_NOWORK.Checked) { activeCode |= DateCodeGen.NOWORK; }
+
+            return activeCode;
         }
     }
 }

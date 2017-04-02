@@ -67,7 +67,7 @@
             this.button_Edit.Name = "button_Edit";
             this.button_Edit.Size = new System.Drawing.Size(75, 23);
             this.button_Edit.TabIndex = 3;
-            this.button_Edit.Text = "Edit";
+            this.button_Edit.Text = "&Edit";
             this.button_Edit.UseVisualStyleBackColor = true;
             this.button_Edit.Click += new System.EventHandler(this.button_Edit_Click);
             // 
