@@ -23,11 +23,11 @@ namespace CodeGenMenetrend.ScheduleGen
             if(pStop != null)
             {
                 this.Stop = pStop;
-                this.Name = this.Stop.Station.Name;
+                this.Text = this.Stop.Station.Name;
             }
             else
             {
-                this.Name = "Új állomás";
+                this.Text = "Új állomás";
             }
 
             var stationList = pStations.OrderBy(x => x.Name).ToList();

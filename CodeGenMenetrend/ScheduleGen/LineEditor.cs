@@ -22,12 +22,12 @@ namespace CodeGenMenetrend.ScheduleGen
             if(pLine != null)
             {
                 this.Line = pLine;
-                this.Name = this.Line.ID;
+                this.Text = this.Line.ID;
                 this.textBox1.Text = this.Line.ID;
             }
             else
             {
-                this.Name = "Új járat";
+                this.Text = "Új járat";
             }
 
             this.AcceptButton = this.button1;

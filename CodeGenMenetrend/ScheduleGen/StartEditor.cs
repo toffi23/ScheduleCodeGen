@@ -19,7 +19,6 @@ namespace CodeGenMenetrend.ScheduleGen
         public StartEditor(ICollection<Track> pTracks, Start pStart = null)
         {
             InitializeComponent();
-
             this.dateTimePicker1.Format = DateTimePickerFormat.Custom;
             this.dateTimePicker1.CustomFormat = "HH:mm";
             this.listBox1.DataSource = pTracks;
@@ -38,7 +37,7 @@ namespace CodeGenMenetrend.ScheduleGen
             if (pStart != null)
             {
                 Start = pStart;
-                this.Name = Start.ToString();
+                this.Text = Start.ToString();
                 this.dateTimePicker1.Value = Start.StartTime;
                 this.dateTimePicker2.Value = new DateTime(Start.StartTime.Year, 1, 1).AddDays(Start.ActiveFrom - 1);
                 this.dateTimePicker3.Value = new DateTime(Start.StartTime.Year, 1, 1).AddDays(Start.ActiveTill - 1);
@@ -47,7 +46,7 @@ namespace CodeGenMenetrend.ScheduleGen
             }
             else
             {
-                this.Name = "Új indulási idő";
+                this.Text = "Új indulási idő";
             }
         }
 
@@ -109,6 +108,14 @@ namespace CodeGenMenetrend.ScheduleGen
             if (checkBox_NOWORK.Checked) { activeCode |= DateCodeGen.NOWORK; }
 
             return activeCode;
+        }
+
+        private void StartEditor_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
     }
 }

@@ -16,7 +16,9 @@ namespace CodeGenMenetrend
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainMenu());
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.StartPosition = FormStartPosition.CenterScreen;
+            Application.Run(mainMenu);
         }
     }
 }

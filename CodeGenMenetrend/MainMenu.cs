@@ -15,14 +15,13 @@ namespace CodeGenMenetrend
         public MainMenu()
         {
             InitializeComponent();
-            this.Location = Cursor.Position;
         }
 
         private void button_calGen_Click(object sender, EventArgs e)
         {
             LabelCal calGen = new LabelCal(this);
             this.Hide();
-            calGen.Location = Cursor.Position;
+            calGen.StartPosition = FormStartPosition.CenterScreen;
             calGen.Show();
 
         }
@@ -31,7 +30,7 @@ namespace CodeGenMenetrend
         {
             ScheduleEditor scheduleEditor = new ScheduleEditor(this);
             this.Hide();
-            scheduleEditor.Location = Cursor.Position;
+            scheduleEditor.StartPosition = FormStartPosition.CenterScreen;
             scheduleEditor.Show();
         }
     }

@@ -185,8 +185,8 @@ namespace CodeGenMenetrend
             if(node.Tag == _schedule.Lines)
             {
                 var editor = new LineEditor();
+                editor.StartPosition = FormStartPosition.CenterParent;
                 editor.ShowDialog();
-                editor.Location = Cursor.Position;
                 if(editor.DialogResult == DialogResult.OK)
                 {
                     _schedule.Lines.Add(editor.Line);
@@ -200,8 +200,8 @@ namespace CodeGenMenetrend
             if(node.Tag == _schedule.Stations)
             {
                 var editor = new StationEditor();
+                editor.StartPosition = FormStartPosition.CenterParent;
                 editor.ShowDialog();
-                editor.Location = Cursor.Position;
                 if(editor.DialogResult == DialogResult.OK)
                 {
                     _schedule.Stations.Add(editor.Station);
@@ -225,8 +225,8 @@ namespace CodeGenMenetrend
             {
                 Track track = (Track)node.Tag;
                 var editor = new StopEditor(_schedule.Stations);
+                editor.StartPosition = FormStartPosition.CenterParent;
                 editor.ShowDialog();
-                editor.Location = Cursor.Position;
                 if(editor.DialogResult == DialogResult.OK)
                 {
                     track.Stops.Add(editor.Stop);
@@ -239,9 +239,9 @@ namespace CodeGenMenetrend
             {
                 Line line = (Line)node.Parent.Tag;
                 var editor = new StartEditor(line.Tracks);
+                editor.StartPosition = FormStartPosition.CenterParent;
                 editor.ShowDialog();
-                editor.Location = Cursor.Position;
-                if(editor.DialogResult == DialogResult.OK)
+                if (editor.DialogResult == DialogResult.OK)
                 {
                     line.Starts.Add(editor.Start);
                     addNode(editor.Start, node);
@@ -296,8 +296,8 @@ namespace CodeGenMenetrend
             if(item is Station)
             {
                 var editor = new StationEditor((Station)item);
+                editor.StartPosition = FormStartPosition.CenterParent;
                 editor.ShowDialog();
-                editor.Location = Cursor.Position;
                 if (editor.DialogResult == DialogResult.OK)
                 {
                     node.Text = ((Station)item).ToString();
@@ -308,8 +308,8 @@ namespace CodeGenMenetrend
             if(item is Line)
             {
                 var editor = new LineEditor((Line)item);
+                editor.StartPosition = FormStartPosition.CenterParent;
                 editor.ShowDialog();
-                editor.Location = Cursor.Position;
                 if (editor.DialogResult == DialogResult.OK)
                 {
                     node.Text = ((Line)item).ToString();
@@ -320,8 +320,8 @@ namespace CodeGenMenetrend
             if (item is Stop)
             {
                 var editor = new StopEditor(_schedule.Stations,(Stop)item);
+                editor.StartPosition = FormStartPosition.CenterParent;
                 editor.ShowDialog();
-                editor.Location = Cursor.Position;
                 if (editor.DialogResult == DialogResult.OK)
                 {
                     node.Text = ((Stop)item).ToString();
@@ -332,8 +332,8 @@ namespace CodeGenMenetrend
             {
                 Line line = (Line)node.Parent.Parent.Tag;
                 var editor = new StartEditor(line.Tracks,(Start)node.Tag);
+                editor.StartPosition = FormStartPosition.CenterParent;
                 editor.ShowDialog();
-                editor.Location = Cursor.Position;
                 if (editor.DialogResult == DialogResult.OK)
                 {
                     node.Text = ((Start)item).ToString();

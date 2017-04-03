@@ -139,9 +139,9 @@
             this.checkBox_WORKDAY.AutoSize = true;
             this.checkBox_WORKDAY.Location = new System.Drawing.Point(115, 26);
             this.checkBox_WORKDAY.Name = "checkBox_WORKDAY";
-            this.checkBox_WORKDAY.Size = new System.Drawing.Size(82, 17);
+            this.checkBox_WORKDAY.Size = new System.Drawing.Size(153, 17);
             this.checkBox_WORKDAY.TabIndex = 2;
-            this.checkBox_WORKDAY.Text = "WORKDAY";
+            this.checkBox_WORKDAY.Text = "&WORKDAY/SCHOOLDAY";
             this.checkBox_WORKDAY.UseVisualStyleBackColor = true;
             // 
             // checkBox_NOSCHOOLWORK
@@ -151,7 +151,7 @@
             this.checkBox_NOSCHOOLWORK.Name = "checkBox_NOSCHOOLWORK";
             this.checkBox_NOSCHOOLWORK.Size = new System.Drawing.Size(120, 17);
             this.checkBox_NOSCHOOLWORK.TabIndex = 3;
-            this.checkBox_NOSCHOOLWORK.Text = "NOSCHOOLWORK";
+            this.checkBox_NOSCHOOLWORK.Text = "NO&SCHOOLWORK";
             this.checkBox_NOSCHOOLWORK.UseVisualStyleBackColor = true;
             // 
             // checkBox_FREEDAY
@@ -161,7 +161,7 @@
             this.checkBox_FREEDAY.Name = "checkBox_FREEDAY";
             this.checkBox_FREEDAY.Size = new System.Drawing.Size(76, 17);
             this.checkBox_FREEDAY.TabIndex = 4;
-            this.checkBox_FREEDAY.Text = "FREEDAY";
+            this.checkBox_FREEDAY.Text = "&FREEDAY";
             this.checkBox_FREEDAY.UseVisualStyleBackColor = true;
             // 
             // checkBox_NOWORK
@@ -171,11 +171,12 @@
             this.checkBox_NOWORK.Name = "checkBox_NOWORK";
             this.checkBox_NOWORK.Size = new System.Drawing.Size(76, 17);
             this.checkBox_NOWORK.TabIndex = 5;
-            this.checkBox_NOWORK.Text = "NOWORK";
+            this.checkBox_NOWORK.Text = "NOWO&RK";
             this.checkBox_NOWORK.UseVisualStyleBackColor = true;
             // 
             // StartEditor
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(271, 251);
@@ -193,8 +194,10 @@
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dateTimePicker1);
+            this.KeyPreview = true;
             this.Name = "StartEditor";
             this.Text = "StartEditor";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.StartEditor_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 
