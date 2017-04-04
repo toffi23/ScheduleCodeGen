@@ -65,5 +65,9 @@ namespace CodeGenMenetrend.ScheduleLib
             return longestTrack.Stops.Last();
         }
 
+        public void SortStarts()
+        {
+            Starts.Sort((start1, start2) => start1.StartTime.CompareTo(start2.StartTime));
+        }
     }
 }

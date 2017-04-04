@@ -100,6 +100,7 @@ namespace CodeGenMenetrend
 
         private TreeNode drawStarts(Line pLine)
         {
+            pLine.SortStarts();
             TreeNode startsNode = new TreeNode("Indulási idők");
             startsNode.Tag = pLine.Starts;
 
