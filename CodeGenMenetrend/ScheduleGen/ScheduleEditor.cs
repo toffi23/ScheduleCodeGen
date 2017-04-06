@@ -345,8 +345,28 @@ namespace CodeGenMenetrend
 
         private void button_Remove_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(@"Sajnálom, de ez a funkció még nincs implementálva :(."+Environment.NewLine+
-                "További információért lépj kapcsolatba a fejlesztővel: Maschefszki Tamás");
+            TreeNode node = treeView1.SelectedNode;
+            this.treeView1.Select();
+
+            if (node == null)
+            {
+                MessageBox.Show("Nincs kijelölt elem!");
+                return;
+            }
+
+            object item = node.Tag;
+            object parent = node.Parent.Tag;
+
+            if (item is Line)
+            {
+                _schedule.Lines.Remove((Line)item);
+                node.Parent.Nodes.Remove(node);
+            }
+            else
+            {
+                MessageBox.Show(@"Sajnálom, de ez a funkció még nincs implementálva :(." + Environment.NewLine +
+                    "További információért lépj kapcsolatba a fejlesztővel: Maschefszki Tamás");
+            }
         }
     }
 }
