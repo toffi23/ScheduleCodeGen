@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -25,15 +26,6 @@ namespace CodeGenMenetrend.CalendarGen
 
         private int[] dayCodes;
         private int YEAR;
-
-        private string[] codeNames =
-        {
-            "ERROR",
-            "WORKDAY",
-            "NOSCHOOLWORK",
-            "FREEDAY",
-            "NOWORK"
-        };
 
         public DateCodeGen(int[] pDayCodes, int pYear)
         {
@@ -75,7 +67,8 @@ namespace CodeGenMenetrend.CalendarGen
                 {
                     date = new DateTime(YEAR, m, d);
                     DoY = date.DayOfYear;
-                    codeName = codeNames[dayCodes[DoY]];
+                    Debug.WriteLine("DoY:" + DoY);
+                    codeName = getCodeStr(dayCodes[DoY]);
 
                     comment = String.Format("// {0,2}-{1,2}", m.ToString("D2"), d.ToString("D2"));
                     assig = String.Format("ActiveCodes[" + DoY + "] = " + codeName);
@@ -90,6 +83,21 @@ namespace CodeGenMenetrend.CalendarGen
             ActiveCodes[0] = ACTIVE_SUNDAY;*/
 
             //Console.WriteLine(Output);
+        }
+
+        private string getCodeStr(int v)
+        {
+            string dayCodeStr;
+
+            switch (v)
+            {
+                case 1: dayCodeStr = "WORKDAY"; break;
+                case 2: dayCodeStr = "NOSCHOOLWORK"; break;
+                case 4: dayCodeStr = "FREEDAY"; break;
+                case 8: dayCodeStr = "NOWORK"; break;
+                default: dayCodeStr = "ERROR"; break;
+            }
+            return dayCodeStr;
         }
 
         public void writeToFile(string path)
